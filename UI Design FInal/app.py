@@ -54,7 +54,7 @@ def quiz_result():
             score += 1
             results[question] = {'user_answer': user_answer, 'correct': True}
         else:
-            results[question] = {'user_answer': user_answer, 'correct': False, 'correct_answer': correct_answers[question]}
+            results[question] = {'correct_answer': correct_answers[question]}
     
     return render_template('result.html', score=score, results=results)
 
