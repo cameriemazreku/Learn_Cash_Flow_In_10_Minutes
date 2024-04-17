@@ -43,7 +43,8 @@
 <div class="container">
     <h2 class="text-center mb-4">Quiz on Cash Flow Statements</h2>
     
-    <form id="quizForm" action="/result" method="POST">
+    <form id="quizForm" action="{{ url_for('quiz', question_number=question_number) }}" method="POST">
+
     
         <!-- Question 1 -->
         <div class="question">
