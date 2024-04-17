@@ -54,9 +54,9 @@ def quiz_result():
             score += 1
             results[question] = {'user_answer': user_answer, 'correct': True}
         else:
-            results[question] = {'correct_answer': correct_answers[question]}
-    
-    return render_template('result.html', score=score, results=results)
+            results[question] = {'user_answer': user_answer, 'correct_answer': correct_answers[question]}
+
+    return render_template('result.html', results=results)
 
 if __name__ == '__main__':
     app.run(debug=True)
