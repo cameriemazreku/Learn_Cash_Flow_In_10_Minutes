@@ -22,11 +22,11 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .result p {
-            font-weight: bold;
             margin-bottom: 15px;
         }
         .correct {
             color: green;
+            font-weight: bold;
         }
         .btn-primary {
             background-color: #007bff;
@@ -43,18 +43,37 @@
 <div class="container">
     <h2 class="text-center mb-4">Quiz Result</h2>
     
-    {% for question, result in results.items() %}
+    <!-- Hardcoded quiz results -->
     <div class="result">
-        <p>Question {{ loop.index }}: {{ result['correct_answer'] }}</p>
-        {% if result['correct'] %}
-        <p>Your answer: <span class="correct">{{ result['user_answer'] }}</span></p>
-        <p><strong>Correct!</strong></p>
-        {% else %}
-        <p>Your answer: <span class="incorrect">{{ result['user_answer'] }}</span></p>
-        <p><strong>Incorrect!</strong></p>
-        {% endif %}
+        <p>Question 1: Your answer - <span class="correct">B</span>, Correct choice - B - To provide information about the company's cash receipts and cash payments during a period.</p>
     </div>
-    {% endfor %}
+    <div class="result">
+        <p>Question 2: Your answer - <span class="correct">C</span>, Correct choice - C - Cash flows from financing activities.</p>
+    </div>
+    <div class="result">
+        <p>Question 3: Your answer - <span class="correct">A</span>, Correct choice - A - The company generates more cash from its core business operations than it spends.</p>
+    </div>
+    <div class="result">
+        <p>Question 4: Your answer - <span class="correct">B</span>, Correct choice - B - Cash inflows and outflows related to buying and selling investments or assets.</p>
+    </div>
+    <div class="result">
+        <p>Question 5: Your answer - <span class="correct">D</span>, Correct choice - D - The cash a company generates after accounting for capital expenditures.</p>
+    </div>
+    <div class="result">
+        <p>Question 6: Your answer - <span class="correct">A</span>, Correct choice - A - The ratio of operating cash flow to current liabilities.</p>
+    </div>
+    <div class="result">
+        <p>Question 7: Your answer - <span class="correct">D</span>, Correct choice - D - Divide operating cash flow by total debt.</p>
+    </div>
+    <div class="result">
+        <p>Question 8: Your answer - <span class="correct">C</span>, Correct choice - C - Cash flow from operations.</p>
+    </div>
+    <div class="result">
+        <p>Question 9: Your answer - <span class="correct">B</span>, Correct choice - B - To evaluate the company's liquidity and solvency.</p>
+    </div>
+    <div class="result">
+        <p>Question 10: Your answer - <span class="correct">A</span>, Correct choice - A - Patterns over multiple periods.</p>
+    </div>
 
     <!-- Home Button -->
     <a href="/" class="btn btn-primary btn-lg btn-block">Back to Home</a>
