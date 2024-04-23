@@ -43,8 +43,7 @@
 <div class="container">
     <h2 class="text-center mb-4">Quiz on Cash Flow Statements</h2>
     
-    <form id="quizForm" action="{{ url_for('quiz', question_number=question_number) }}" method="POST">
-
+    <form id="quizForm" action="/result" method="POST">
     
         <!-- Question 1 -->
         <div class="question">
@@ -255,7 +254,6 @@
         <label class="form-check-label" for="q10a4">D. Quarterly financial reports.</label>
     </div>
 </div>
-
         <!-- Submit Button -->
         <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
         
@@ -266,6 +264,9 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- script.js for validating quiz answers -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 </html>
