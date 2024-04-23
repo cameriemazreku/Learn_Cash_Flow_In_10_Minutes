@@ -1,54 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cash Flow Learning</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
 
- <!-- <style>
-      
-    </style> -->
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <a class="navbar-brand" href="/">Cash Flow Lesson</a>
-    
-            <div class="navbar-nav">
-                <a class="nav-link" href="/learn">Learn</a>
-                <a class="nav-link" href="/quiz">Quiz Yourself</a>
-            </div>
-        </div>
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="row home-div">
+
+    <div class="col learn-box text-left">
+        <h1 class="mb-4">Learn Cash Flow </h1>
+            <h1 class="mb-4">in Only 10 minutes</h1>
+        <p class="lead mb-5">Understand the three types of cash flow <br>on a cash flow statement.</p>
         
-        
-    </nav>
-    <div class="container">
-    <div class="row ">
-
-<div class="col learn-box text-left">
-    <h1 class="mb-4">Learn Cash Flow </h1>
-        <h1 class="mb-4">in Only 10 minutes</h1>
-    <p class="lead mb-5">Understand the three types of cash flow <br>on a cash flow statement.</p>
+        <!-- Learn Button -->
+        <a href="/learn" class="btn btn-custom btn-learn m-2">Learn</a>
+        <br>
+        <!-- Quiz Button -->
+        <a href="/quiz" class="btn btn-custom btn-quiz m-2">Take the Quiz</a>
+    </div>
     
-    <!-- Learn Button -->
-    <a href="/learn" class="btn btn-custom btn-learn m-2">Learn</a>
-    <br>
-    <!-- Quiz Button -->
-    <a href="/quiz" class="btn btn-custom btn-quiz m-2">Take the Quiz</a>
-</div>
-
-<div class ="col">
-</div>
-</div>
-</div>
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+    <div class ="col">
+    </div>
+    </div>
+    {% endblock %}
