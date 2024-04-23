@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify, Response
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
 # Dictionary to store quiz answers
 quiz_answers = {}
@@ -10,30 +10,17 @@ quiz_answers = {}
 def home():
     return render_template('home.html')
 
-@app.route('/learn/<int:lesson_number>')
-def learn(lesson_number):
+@app.route('/learn')
+def learn():
     # Here you can implement the logic to fetch the learning material for the specified lesson_number
     # For now, just rendering the learning page
     return render_template('learning.html')
 
-@app.route('/quiz/<int:question_number>', methods=['GET', 'POST'])
-def quiz(question_number):
-    if request.method == 'POST':
-        # Collecting quiz answers from the form
-        for key, value in request.form.items():
-            quiz_answers[key] = value
+@app.route('/quiz', methods=['GET', 'POST'])
+def quiz():
+    return render_template('quiz.html')
 
-        if question_number == 10:
-            return redirect(url_for('quiz_result'))
-        else:
-            next_question_number = question_number + 1
-            return redirect(url_for('quiz', question_number=next_question_number))
-    else:
-        # Here you can implement the logic to fetch the quiz questions for the specified question_number
-        # For now, just rendering the quiz page
-        return render_template('quiz.html', question_number=question_number)
-
-@app.route('/result')
+@app.route('/result', methods=['POST'])
 def quiz_result():
     correct_answers = {
         'question1': 'B',
@@ -49,14 +36,15 @@ def quiz_result():
     }
     score = 0
     results = {}
-    for question, user_answer in quiz_answers.items():
+    for question in correct_answers:
+        user_answer = request.form.get(question)  # Get user's answer for the current question
         if user_answer == correct_answers[question]:
             score += 1
-            results[question] = {'user_answer': user_answer, 'correct': True}
+            results[question] = {'user_answer': user_answer, 'correct': True, 'correct_answer': correct_answers[question]}
         else:
-            results[question] = {'user_answer': user_answer, 'correct_answer': correct_answers[question]}
+            results[question] = {'user_answer': user_answer, 'correct': False, 'correct_answer': correct_answers[question]}
 
-    return render_template('result.html', results=results)
+    return render_template('result.html', results=results, score=score)
 
 if __name__ == '__main__':
     app.run(debug=True)
