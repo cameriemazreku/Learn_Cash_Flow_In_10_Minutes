@@ -10,15 +10,11 @@ quiz_answers = {}
 def home():
     return render_template('home.html')
 
-@app.route('/learn')
-def learn():
+@app.route('/learn/<int:lesson_number>')
+def learn(lesson_number):
+    # Here you can implement the logic to fetch the learning material for the specified lesson_number
+    # For now, just rendering the learning page
     return render_template('learning.html')
-
-# @app.route('/learn/<int:lesson_number>')
-# def learn(lesson_number):
-#     # Here you can implement the logic to fetch the learning material for the specified lesson_number
-#     # For now, just rendering the learning page
-#     return render_template('learning.html')
 
 @app.route('/quiz/<int:question_number>', methods=['GET', 'POST'])
 def quiz(question_number):
