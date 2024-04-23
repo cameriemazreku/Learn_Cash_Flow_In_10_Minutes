@@ -1,0 +1,115 @@
+#hello_div{
+    padding-top:  10px;
+    padding-bottom:  10px;
+    color: rgb(255, 122, 195);
+}
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+    color: red;
+}
+.nav-icon {
+    margin-left: 0.5rem; /* Adjust spacing to the left of the icon */
+    margin-right: 1rem;
+}
+
+/* Adjustments for the badge showing number of items in the cart */
+.nav-icon .badge {
+    /* margin-left: 0.5rem; */
+    /* top: -10px; Adjust vertical position */
+    /* right: 0px; Adjust horizontal position */
+    margin-right: 2rem;
+    border: 2px solid white; /* Optional: Adds a border to make the badge stand out */
+
+}
+
+.navbar {
+    background-color: #f473b9; /* A light pink, for example, adjust as needed */
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.nav-link {
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #d3d3d3;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif; /* A clean, easy-to-read font */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #333; /* Dark grey for headings */
+}
+
+p {
+    color: #666; /* Lighter grey for paragraphs */
+}
+
+
+.btn-outline-success {
+    border-color: #f473b9;
+    color: #f473b9;
+}
+
+.btn-outline-success:hover {
+    background-color: #f473b9;
+    color: #ffffff;
+}
+input[type=text], textarea {
+    border-radius: 0.25rem;
+    border: 1px solid #cccccc;
+}
+
+input[type=text]:focus, textarea:focus {
+    border-color: #f473b9;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(247, 115, 185, 0.6);
+}
+
+.item-detail {
+    background-color: #fff; /* Light background to make the text readable */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    margin-top: 20px;
+}
+
+.item-detail h1, .item-detail h4, .item-detail h6 {
+    color: #333;
+}
+
+.item-detail p {
+    color: #666;
+    font-size: 16px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+.item-detail img {
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.btn-outline-secondary {
+    border-color: #f473b9; /* Adjust the color to fit your site's theme */
+    color: #f473b9;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #f473b9;
+    color: #ffffff;
+}
