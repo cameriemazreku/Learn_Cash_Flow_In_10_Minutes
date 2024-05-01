@@ -159,7 +159,7 @@ def quiz_question(q_number):
         else:
             return redirect(url_for('quiz_result'))
 
-@app.route('/result', methods=['POST'])
+@app.route('/result', methods=['GET', 'POST'])
 def quiz_result():
     user_answers = {}
 
