@@ -39,234 +39,31 @@
     </style>
 </head>
 <body>
+{% extends "layout.html" %}
 
+{% block content %}
 <div class="container">
-    <h2 class="text-center mb-4">Quiz on Cash Flow Statements</h2>
-    
-    <form id="quizForm" action="/result" method="POST">
-    
-        <!-- Question 1 -->
-        <div class="question">
-            <p>1. What is the primary purpose of a cash flow statement?</p>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="question1" id="q1a1" value="A">
-                <label class="form-check-label" for="q1a1">A. To show the company's profitability over a period of time.</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="question1" id="q1a2" value="B">
-                <label class="form-check-label" for="q1a2">B. To provide information about the company's cash receipts and cash payments during a period.</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="question1" id="q1a3" value="C">
-                <label class="form-check-label" for="q1a3">C. To detail the company's sales figures for the fiscal year.</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="question1" id="q1a4" value="D">
-                <label class="form-check-label" for="q1a4">D. To outline the company's investment strategy.</label>
-            </div>
-        </div>
-
-        <!-- Question 2 -->
-        <div class="question">
-            <p>2. Which section of the cash flow statement reports cash flows from borrowing and repaying loans?</p>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="question2" id="q2a1" value="A">
-                <label class="form-check-label" for="q2a1">A. Cash flows from operating activities.</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="question2" id="q2a2" value="B">
-                <label class="form-check-label" for="q2a2">B. Cash flows from investing activities.</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="question2" id="q2a3" value="C">
-                <label class="form-check-label" for="q2a3">C. Cash flows from financing activities.</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="question2" id="q2a4" value="D">
-                <label class="form-check-label" for="q2a4">D. Cash flows from operating, investing, and financing activities.</label>
-            </div>
-        </div>
-
-<!-- Question 3 -->
-<div class="question">
-    <p>3. What does a positive cash flow from operating activities indicate?</p>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question3" id="q3a1" value="A">
-        <label class="form-check-label" for="q3a1">A. The company generates more cash from its core business operations than it spends.</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question3" id="q3a2" value="B">
-        <label class="form-check-label" for="q3a2">B. The company is experiencing a cash deficit.</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question3" id="q3a3" value="C">
-        <label class="form-check-label" for="q3a3">C. The company has high levels of debt.</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question3" id="q3a4" value="D">
-        <label class="form-check-label" for="q3a4">D. The company is experiencing financial distress.</label>
-    </div>
-</div>
-
-<!-- Question 4 -->
-<div class="question">
-    <p>4. How are cash flows from investing activities typically categorized?</p>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question4" id="q4a1" value="A">
-        <label class="form-check-label" for="q4a1">A. Cash inflows only.</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question4" id="q4a2" value="B">
-        <label class="form-check-label" for="q4a2">B. Cash inflows and outflows related to buying and selling investments or assets.</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question4" id="q4a3" value="C">
-        <label class="form-check-label" for="q4a3">C. Cash outflows only.</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question4" id="q4a4" value="D">
-        <label class="form-check-label" for="q4a4">D. Cash inflows and outflows related to financing activities.</label>
-    </div>
-</div>
-
-<!-- Question 5 -->
-<div class="question">
-    <p>5. What is free cash flow?</p>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question5" id="q5a1" value="A">
-        <label class="form-check-label" for="q5a1">A. The total amount of cash and cash equivalents.</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question5" id="q5a2" value="B">
-        <label class="form-check-label" for="q5a2">B. The net income of a company.</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question5" id="q5a3" value="C">
-        <label class="form-check-label" for="q5a3">C. The total revenue generated by a company.</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question5" id="q5a4" value="D">
-        <label class="form-check-label" for="q5a4">D. The cash a company generates after accounting for capital expenditures.</label>
-    </div>
-</div>
-
-<!-- Question 6 -->
-<div class="question">
-    <p>6. What is the operating cash flow ratio?</p>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question6" id="q6a1" value="A">
-        <label class="form-check-label" for="q6a1">A. The ratio of operating cash flow to current liabilities.</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question6" id="q6a2" value="B">
-        <label class="form-check-label" for="q6a2">B. The ratio of net income to total assets.</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question6" id="q6a3" value="C">
-        <label class="form-check-label" for="q6a3">C. The ratio of cash flows from financing activities to cash flows from operating activities.</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question6" id="q6a4" value="D">
-        <label class="form-check-label" for="q6a4">D. The ratio of net income to shareholders' equity.</label>
-    </div>
-</div>
-
-<!-- Question 7 -->
-<div class="question">
-    <p>7. How do you calculate the cash flow to debt ratio?</p>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question7" id="q7a1" value="A">
-        <label class="form-check-label" for="q7a1">A. Divide operating cash flow by total liabilities.</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question7" id="q7a2" value="B">
-        <label class="form-check-label" for="q7a2">B. Divide net income by total assets.</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question7" id="q7a3" value="C">
-        <label class="form-check-label" for="q7a3">C. Divide operating cash flow by net income.</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question7" id="q7a4" value="D">
-        <label class="form-check-label" for="q7a4">D. Divide operating cash flow by total debt.</label>
-    </div>
-</div>
-
-<!-- Question 8 -->
-<div class="question">
-    <p>8. Which of the following is a key metric derived from cash flow statements?</p>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question8" id="q8a1" value="A">
-        <label class="form-check-label" for="q8a1">A. Earnings per share.</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question8" id="q8a2" value="B">
-        <label class="form-check-label" for="q8a2">B. Total revenue.</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question8" id="q8a3" value="C">
-        <label class="form-check-label" for="q8a3">C. Cash flow from operations.</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question8" id="q8a4" value="D">
-        <label class="form-check-label" for="q8a4">D. Net income.</label>
-    </div>
-</div>
-
-<!-- Question 9 -->
-<div class="question">
-    <p>9. Why is it important to analyze cash flow data?</p>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question9" id="q9a1" value="A">
-        <label class="form-check-label" for="q9a1">A. To predict future stock prices.</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question9" id="q9a2" value="B">
-        <label class="form-check-label" for="q9a2">B. To evaluate the company's liquidity and solvency.</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question9" id="q9a3" value="C">
-        <label class="form-check-label" for="q9a3">C. To analyze competitors' financial performance.</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question9" id="q9a4" value="D">
-        <label class="form-check-label" for="q9a4">D. To determine the company's market share.</label>
-    </div>
-</div>
-
-<!-- Question 10 -->
-<div class="question">
-    <p>10. What should you look for when analyzing cash flow trends?</p>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question10" id="q10a1" value="A">
-        <label class="form-check-label" for="q10a1">A. Patterns over multiple periods.</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question10" id="q10a2" value="B">
-        <label class="form-check-label" for="q10a2">B. Daily fluctuations in cash balance.</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question10" id="q10a3" value="C">
-        <label class="form-check-label" for="q10a3">C. Consistency in dividend payments.</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="question10" id="q10a4" value="D">
-        <label class="form-check-label" for="q10a4">D. Quarterly financial reports.</label>
-    </div>
-</div>
-        <!-- Submit Button -->
-        <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+    <form id="quizForm" method="POST" action="{{ url_for('quiz_question', q_number=question.number) }}">
         
+            <div class="question">
+                <p>{{ question.question}}</p>
+                {% for option in question.options %}
+                <div class="form-check">
+                   <input class="form-check-input" type="radio" name="selected_option" id="option{{ loop.index }}" value="{{ option }}">
+                   <label class="form-check-label" for="option{{ loop.index }}">{{ option }}</label>
+                </div>
+                {% endfor %}
+            </div>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>  
     </form>
 </div>
-
+{% endblock %}
 <!-- Bootstrap JS Dependencies -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<!-- script.js for validating quiz answers -->
-<script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 </html>

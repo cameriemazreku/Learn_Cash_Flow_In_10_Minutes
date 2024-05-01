@@ -39,7 +39,9 @@
     </style>
 </head>
 <body>
+{% extends "layout.html" %}
 
+{% block content %}
 <div class="container">
     <h2 class="text-center mb-4">Quiz Result</h2>
     
@@ -60,7 +62,7 @@
     <!-- Home Button -->
     <a href="/" class="btn btn-primary btn-lg btn-block">Back to Home</a>
 </div>
-
+{% endblock %}
 <!-- Bootstrap JS Dependencies -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
