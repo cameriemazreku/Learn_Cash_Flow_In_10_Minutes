@@ -1,14 +1,92 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<style>
+    @font-face {
+       font-family: 'roboto';
+       src: url('/static/fonts/Roboto-Medium.ttf');
+    }
+    @font-face {
+       font-family: 'roboto-bold';
+       src: url('/static/fonts/Roboto-Bold.ttf');
+    }
+    @font-face {
+       font-family: 'nunito';
+       src: url('/static/fonts/Nunito-Regular.ttf');
+    }
+    body, html {
+        height: 100%;
+        margin: 0;
+    }
+    .flex-container {
+        display: flex;
+        height: 100%;
+    }
+    .left-column {
+        flex: 0 0 40%; /* 60% width */
+        background-color: #182B49; /* Dark blue color */        
+        padding: 50px;
+        box-sizing: border-box;
+    }
+    .right-column {
+        flex: 0 0 60%; /* 40% width */
+        background-image: url("/static/images/quiz1.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+    .welcome {
+        font-family: roboto-bold;
+        font-size: 40px;
+        text-align: left;
+        margin-left: 40px;
+        margin-bottom: 40px;
+        margin-top: 90px;
+        color: #f7fcff;
+    }
+    .start {
+        font-family: roboto-bold;
+        font-size: 36px;
+        text-align: left;
+        margin-left: 40px;
+        margin-bottom: 40px;
+        color: #9ee0eb;
+    }
+    .button-container {
+        display: flex;
+        margin-left: 25px;
+        justify-content: left;
+    }
+    /* Style the buttons */
+    .button-container button {
+        margin: 0 15px;
+        width: 160px;
+        padding: 8px;
+        font-family: nunito;
+        font-size: 18px;
+    }
+    .btn-primary {
+        background-color: #126cce;
+        border-color: #007bff;
+    }
+    .btn-primary:hover {
+        background-color: #034082;
+        border-color: #0056b3;
+    }
+</style>
 
-<div class="container">
-    <h2 class="text-center mb-4">Welcome to the Quiz</h2>
-    <p class="text-center">Are you ready to start?</p>
-    <div class="text-center">
-        <form method="POST" action="{{ url_for('startquiz') }}">
-            <button type="submit" class="btn btn-primary">Start Quiz</button>
-        </form>
+<div class="flex-container">
+    <div class="left-column">
+        <div class="welcome">Time to test your knowledge!</div>
+        <div class="start">Ready to start the quiz?</div>
+        <div class="button-container">
+            <form method="POST" action="{{ url_for('startquiz') }}">
+                <button type="submit" class="btn btn-primary">Start Quiz</button>
+            </form>
+            <form method="GET" action="{{ url_for('home') }}">
+                <button type="submit" class="btn btn-secondary">Back to Lessons</button>
+            </form>
+        </div>
     </div>
+    <div class="right-column"></div>
 </div>
 {% endblock %}

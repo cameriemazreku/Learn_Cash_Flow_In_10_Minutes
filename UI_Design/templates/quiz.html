@@ -2,59 +2,123 @@
 
 {% block content %}
 <style>
+    @font-face {
+       font-family: 'roboto';
+       src: url('/static/fonts/Roboto-Medium.ttf');
+    }
+    @font-face {
+       font-family: 'roboto-bold';
+       src: url('/static/fonts/Roboto-Bold.ttf');
+    }
+    @font-face {
+       font-family: 'nunito';
+       src: url('/static/fonts/Nunito-Regular.ttf');
+    }
     body {
-        background-color: #f4faffff;
+        background-color: #e4eef7;
         color: black;
+    }
+    .nav-divider {
+        height: 40px;
+        background-color: #073763ff; /* Dark blue color */
+        width: 100%; /* Extends across the entire page */
     }
     .container {
         margin-top: 50px;
+        margin-bottom: 40px;
     }
-    .question {
-        margin-bottom: 30px;
+    .options {
+        margin-bottom: 35px;
+    }
+    .option-letter{
+         margin-right: 20px; 
+         font-weight: 500;
+         color: #073763ff;
+    }
+    .option-box {
+        font-family: nunito;
+        font-size: 17px;
+        width: 80%;
         padding: 20px;
         border: 1px solid #ced4da;
         border-radius: 10px;
         background-color: #fff;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 15px; /* Add some space between options */
+        cursor: pointer; /* Change cursor to pointer */
+        display: flex; /* Use flexbox to align items vertically */
+        align-items: center; /* Center option text vertically */
     }
-    .question p {
-        font-weight: bold;
-        margin-bottom: 15px;
+    .option-box.selected {
+        background-color: #d9ead3ff;
+        border: 1px solid #91c679; /* Change border color for selected option */
     }
-    .form-check-input {
-        margin-right: 10px;
+    .questionnum h2 {
+        color: #69aab5;
+        font-family: roboto;
+    }
+    .question {
+        color: black;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        font-family: roboto-bold;
+        font-size: 32px;
+    }
+    .btn{
+        width: 150px;
+        padding: 8px;
+        align-items: center;
+        font-family: nunito;
     }
     .btn-primary {
-        background-color: #007bff;
+        background-color: #0056b3;
         border-color: #007bff;
     }
     .btn-primary:hover {
-        background-color: #0056b3;
+        background-color: #034082;
         border-color: #0056b3;
     }
-    .nav-divider {
-        height: 30px;
-        background-color: #007bff; /* Dark blue color */
-        width: 100%; /* Extends across the entire page */
+    /* Hide radio button */
+    input[type="radio"] {
+        display: none;
+    }
+    #error-message {
+        display: none;
+        color: red;
+        margin-bottom: 12px;
+        margin-top: -15px;
     }
 </style>
 
 <div class="nav-divider"></div>
 <div class="container">    
     <form id="quizForm" method="POST" action="{{ url_for('quiz_question', q_number=question.number) }}">
-            <div class = "questionnum">
+        <div class="questionnum">
             <h2> Question {{question.number}} </h2>
-            </div>
-            <div class="question">
-                <p>{{ question.question}}</p>
-                {% for option in question.options %}
-                <div class="form-check">
-                   <input class="form-check-input" type="radio" name="selected_option" id="option{{ loop.index }}" value="{{ option }}">
-                   <label class="form-check-label" for="option{{ loop.index }}">{{ option }}</label>
-                </div>
-                {% endfor %}
-            </div>       
-        <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>  
+        </div>
+        <div class="question">
+            {{ question.question }}
+        </div>            
+        <div class="options">                
+            {% for option in question.options %}
+            <label class="option-box">
+                <input type="radio" name="selected_option" value="{{ option }}" onclick="selectOption(this)">
+                <span class="option-letter">{{ option.split('. ')[0] }}.</span> <!-- Split the option to get the letter -->
+                <span class="option-text">{{ option.split('. ')[1] }}</span> <!-- Split the option to get the answer -->
+            </label>
+            {% endfor %}
+        </div>
+        <div id="error-message">You must select an answer before continuing.</div>
+        <div class="text-center">
+            {% if question.number == 10 %}
+                <button type="submit" class="btn btn-primary btn-md btn-block" onclick="return validateForm()">Submit Answers</button>
+            {% else %}
+                <button type="submit" class="btn btn-primary btn-md btn-block" onclick="return validateForm()">Next Question</button>
+            {% endif %}
+        </div>
     </form>
 </div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
 {% endblock %}
