@@ -2,56 +2,193 @@
 
 {% block content %}
 <style>
+     @font-face {
+       font-family: 'roboto';
+       src: url('/static/fonts/Roboto-Medium.ttf');
+    }
+    @font-face {
+       font-family: 'roboto-bold';
+       src: url('/static/fonts/Roboto-Bold.ttf');
+    }
+    @font-face {
+       font-family: 'nunito';
+       src: url('/static/fonts/Nunito-Regular.ttf');
+    }
+    .nav-divider {
+        height: 40px;
+        background-color: #073763ff; /* Dark blue color */
+        width: 100%; /* Extends across the entire page */
+    }
     body {
-        background-color: #f8f9fa;
+        background-color: #e4eef7;
         color: #343a40;
     }
     .container {
         margin-top: 50px;
+        margin-bottom: 100px;
+    }
+    .scoretext{
+        font-family: roboto;
+        margin-bottom: 30px;
+        font-weight: 500;
+    }
+    .score{
+        color: #69aab5;
+        display: inline;
+        font-weight: 600;
     }
     .result {
+        display: block;
+        font-family: nunito;
         margin-bottom: 30px;
         padding: 20px;
-        border: 1px solid #ced4da;
-        border-radius: 10px;
+        padding-bottom: 30px;
+        padding-left: 40px;
+        border: 2px solid #ced4da;
+        border-radius: 5px;
         background-color: #fff;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-    .result p {
-        margin-bottom: 15px;
+    .result img {
+        max-width: 50%; /* Make sure the image doesn't exceed its parent's width */
+        max-height: auto; /* Make sure the image doesn't exceed its parent's height */
+        position: relative;
+        vertical-align: bottom;
+        display: block;
+        bottom: 10%;
+    }
+    .questionnum h4 {
+        color: #69aab5;
+        font-family: roboto;
+    }
+    .question {
+        color: #294463;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        font-family: roboto-bold;
+        font-size: 26px;
+    }
+    .answers {
+        font-size: 18px;
+    }
+    .user {
+        margin-bottom: 10px;
     }
     .correct {
         color: green;
         font-weight: bold;
     }
+    .btn{
+        font-family: nunito;
+    }
     .btn-primary {
-        background-color: #007bff;
-        border-color: #007bff;
+        color: #294463;
+        padding-left: 20px;
+        padding-right: 20px;
+        background-color: #cfe2f3ff;
+        border-color: #d9d9d9;
     }
     .btn-primary:hover {
         background-color: #0056b3;
         border-color: #0056b3;
     }
+    .row{
+        margin-bottom: 0px;
+        padding-bottom: 15px;
+    }
+    .button-container {
+        margin-top: 40px;
+        text-align: center;
+    }
+    .btn-secondary{
+        font-family: nunito;
+        font-size: 20px;
+        display: inline-block;       
+        padding: 10px;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .btn-secondary.green {
+        margin-right: 30px;
+        background-color: #73c146; /* Light green background */
+        border-color: #409112; /* Border color */
+    }
+    .btn-secondary.green:hover {
+        background-color: #5d9d38; /* Light green background */
+        border-color: #498e21; /* Border color */
+    }
+    .btn-secondary.blue {
+        margin-left: 10px;
+        color: #294463;
+        background-color: #b2d7e6; /* Light blue background */
+        border-color: #a6c7d3; /* Border color */
+    }
+    .btn-secondary.blue:hover {
+        color: white;
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
 </style>
 
+<div class="nav-divider"></div>
 <div class="container">
-    <h2 class="text-center mb-4">Quiz Result</h2>
+    <h2 class="scoretext text-center">
+        You got <div class="score">{{ score }} / 10 </div>questions right!
+    </h2>
     
     <!-- Dynamically generated quiz results -->
     {% for question, answer in results.items() %}
     <div class="result">
-        {% if answer.correct %}
-            <p>Question {{ loop.index }}: Your answer - <span class="correct">{{ answer.user_answer }}</span> - Correct</p>
-        {% else %}
-            <p>Question {{ loop.index }}: Your answer - {{ answer.user_answer }} - Wrong, Correct answer - {{ answer.correct_answer }}</p>
-        {% endif %}
+        <div class="questionnum">
+            <h4> Question {{ loop.index }}</h4>
+        </div>
+        <div class="question">
+            {{ answer.question }}
+        </div> 
+        <div class="answers">
+            {% if answer.correct %} 
+                <div class="row">
+                    <div class="col-10">
+                        <div class="user">
+                            You answered: 
+                            <span class="correct">{{ answer.user_answer }}</span><br>
+                        </div>
+                        Correct answer: 
+                        {{ answer.correct_answer }}    
+                    </div>
+                    <div class="col-2">
+                       <img src="/static/images/checkmark.jpg" alt="Checkmark"> 
+                    </div>
+                </div>
+            {% else %}
+                <div class="row">
+                    <div class="col-10">
+                        <div class="user">
+                            You answered:
+                            {{ answer.user_answer }}<br>
+                        </div>
+                        Correct answer: 
+                        <span class="correct"> {{ answer.correct_answer }} </span>
+                    </div>
+                    <div class="col-2">
+                       <img src="/static/images/xmark.jpg" alt="Xmark"> 
+                    </div>                    
+                </div>
+                <a href="/learn" class="btn btn-primary">Go to lesson</a>
+            {% endif %}
+        </div>
     </div>
     {% endfor %}
 
-    <!-- Display total score -->
-    <p>Total score: {{ score }} / 10</p>
-    
+    <div class = "button-container">
+    <!-- Button to go to the provided website -->
+    <a href="https://www.investopedia.com/investing/what-is-a-cash-flow-statement/" class="btn btn-secondary btn-md green" target="_blank">Learn more about cash flow statements</a>
+
     <!-- Home Button -->
-    <a href="/" class="btn btn-primary btn-lg btn-block">Back to Home</a>
+    <a href="/" class="btn btn-secondary btn-md blue">Back to Home</a>
+
+    </div>
 </div>
+
 {% endblock %}

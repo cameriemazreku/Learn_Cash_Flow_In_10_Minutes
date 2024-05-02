@@ -175,11 +175,12 @@ def quiz_result():
     for question_number, user_answer in user_answers.items():
         question_data = quiz_data.get(question_number.split('_')[1])  # Extract question number from key
         correct_answer = question_data['answer']
+        question = question_data['question']
         if user_answer == correct_answer:
             score += 1
-            results[question_number] = {'user_answer': user_answer, 'correct': True, 'correct_answer': correct_answer}
+            results[question_number] = {'user_answer': user_answer, 'correct': True, 'correct_answer': correct_answer, 'question': question}
         else:
-            results[question_number] = {'user_answer': user_answer, 'correct': False, 'correct_answer': correct_answer}
+            results[question_number] = {'user_answer': user_answer, 'correct': False, 'correct_answer': correct_answer, 'question': question}
 
     return render_template('result.html', results=results, score=score)
 
