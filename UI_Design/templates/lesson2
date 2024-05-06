@@ -190,10 +190,10 @@ ul.financial-highlights p {
         </div>
         <div class="row">
             <div class="col-4 div-learn1">
-                <h2>What is a Cash Flow Statement?</h2>
+                <h2>Cash From Operations</h2>
             </div>
             <div class="col-8 div-content">
-                <p>A cash flow statement is a financial statement that provides aggregate data regarding all cash inflows a company receives from its ongoing operations and external investment sources, as well as all cash outflows that pay for business activities and investments during a given period.</p>
+                <p>Cash flow from operations is the section of a company's cash flow statement that represents the amount of cash a company generates (or consumes) from carrying out its operating activities over a period of time. Operating activities include generating revenue, paying expenses, and funding working capital.</p>
             </div>
         </div>
         <div class="row navigation">
@@ -201,7 +201,7 @@ ul.financial-highlights p {
                 <a href="/" class="btn btn-primary btn-lg btn-block mt-4">Return Home</a>
             </div>
             <div class="col-4 col-btn">
-                <a href="/lesson2" class="btn btn-primary btn-lg btn-block mt-4">Next</a>
+                <a href="/lesson1" class="btn btn-primary btn-lg btn-block mt-4">Next</a>
             </div>
         </div>
     </div>
