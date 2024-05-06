@@ -1,119 +1,243 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learning about Cash Flow Statements</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            background-color: #f8f9fa;
-            color: #343a40;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            margin-top: 50px;
-        }
-        .content {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-        h2 {
-            font-size: 28px;
-            color: #007bff;
-            margin-bottom: 20px;
-        }
-        h3 {
-            font-size: 24px;
-            color: #007bff;
-            margin-top: 30px;
-        }
-        p, ul, ol {
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        ul, ol {
-            margin-left: 20px;
-        }
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-            padding: 12px 24px;
-            font-size: 18px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #0056b3;
-        }
-    </style>
-</head>
-<body>
-
-<div class="container"> -->
-    <!-- <h2 class="text-center mb-4">Learning about Cash Flow Statements</h2> -->
+{% extends "layout.html" %} {% block content %}
+<script>
+    function show(shown, hidden) {
+        document.getElementById(shown).style.display = 'block';
+        document.getElementById(hidden).style.display = 'none';
+    }
+    </script>
     
-{% extends "layout.html" %}
+<style>
+  @font-face {
+    font-family: "roboto";
+    src: url("/static/fonts/Roboto-Medium.ttf");
+  }
+  @font-face {
+    font-family: "roboto-bold";
+    src: url("/static/fonts/Roboto-Bold.ttf");
+  }
+  @font-face {
+    font-family: "nunito";
+    src: url("/static/fonts/Nunito-Regular.ttf");
+  }
+  body {
+    background-color: #e4eef7;
+    color: black;
+  }
+  .row {
+    display: flex;
+    justify-content: space-between; /* This spreads the children elements across the space */
+}
 
-{% block content %}
-<div class = "container">
-    <div class="content">
-        <h3>Introduction</h3>
-        <p>A cash flow statement is a financial statement that provides aggregate data regarding all cash inflows a company receives from its ongoing operations and external investment sources, as well as all cash outflows that pay for business activities and investments during a given period.</p>
-        
-        <h3>Benefits of Cash Flow Statements</h3>
-        <ul>
-            <li>Helps in assessing a company's ability to meet its obligations.</li>
-            <li>Provides insights into a company's liquidity and solvency.</li>
-            <li>Aids in evaluating the company's operating performance.</li>
-            <li>Assists in making informed investment decisions.</li>
-        </ul>
-        
-        <h3>Components of a Cash Flow Statement</h3>
-        <p>A typical cash flow statement includes three main sections:</p>
-        <ol>
-            <li>Cash flows from operating activities</li>
-            <li>Cash flows from investing activities</li>
-            <li>Cash flows from financing activities</li>
-        </ol>
-        
-        <h3>Importance of Cash Flow Management</h3>
-        <p>Effective cash flow management is crucial for the financial health of a business. It ensures that the company has enough cash on hand to meet its short-term obligations, such as paying suppliers and employees, while also funding long-term investments for growth.</p>
-        
-        <h3>Key Metrics Derived from Cash Flow Statements</h3>
-        <p>Cash flow statements provide several important metrics for assessing a company's financial performance, including:</p>
-        <ul>
-            <li>Cash flow from operations</li>
-            <li>Free cash flow</li>
-            <li>Operating cash flow ratio</li>
-            <li>Cash flow to debt ratio</li>
-        </ul>
-        
-        <h3>Tips for Analyzing Cash Flow Data</h3>
-        <p>When analyzing cash flow data, it's essential to:</p>
-        <ul>
-            <li>Compare cash flow trends over multiple periods to identify patterns.</li>
-            <li>Assess the quality of earnings by examining the relationship between net income and operating cash flow.</li>
-            <li>Look for discrepancies between reported earnings and actual cash flows.</li>
-            <li>Evaluate the sustainability of dividend payments based on free cash flow.</li>
-        </ul>
+  .nav-divider {
+    height: 40px;
+    background-color: #073763ff; /* Dark blue color */
+    width: 100%; /* Extends across the entire page */
+  }
+  .container {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    flex: auto;
+  }
+  .div-title {
+    justify-content: center;
+    text-align: center;
+    color: #073763ff;
+    margin: 20px;
+  }
+  .div-learn1 {
+    background-color: #073763ff;
+    color: white;
+    padding: 20px;
+    padding-top: 150px;
+    /* margin:20px; */
+  }
+  .div-content {
+    padding: 20px;
+    padding-top: 150px;
+    background-color: white;
+    color: #073763ff;
+    justify-content: center;
+    font-size: medium;
+    height: 80%;
+    padding-bottom: 150px;
+    /* margin:20px; */
+    /* width: 80%; */
+  }
+  .div-wrap {
+    height: 100vh;
+  }
+  .page2-wrapper {
+    background-color: #034082;
+    color: white;
+  }
+  .div-content-2 {
+    padding: 20px;
+    padding-top: 50px;
+    /* background-color: white; */
+    /* color: #073763ff; */
+    justify-content: center;
+    font-size: medium;
+    height: 80%;
+    padding-bottom: 50px;
+    /* margin:20px; */
+    /* width: 80%; */
+  }
+  .div-img-example {
+    padding: 5px;
+  }
+  .options {
+    margin-bottom: 35px;
+  }
+  .option-letter {
+    margin-right: 20px;
+    font-weight: 500;
+    color: #073763ff;
+  }
+  .option-box {
+    font-family: nunito;
+    font-size: 17px;
+    width: 80%;
+    padding: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px; /* Add some space between options */
+    cursor: pointer; /* Change cursor to pointer */
+    display: flex; /* Use flexbox to align items vertically */
+    align-items: center; /* Center option text vertically */
+  }
+  .option-box.selected {
+    background-color: #d9ead3ff;
+    border: 1px solid #91c679; /* Change border color for selected option */
+  }
+  .questionnum h2 {
+    color: #69aab5;
+    font-family: roboto;
+  }
+  .question {
+    color: black;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-family: roboto-bold;
+    font-size: 32px;
+  }
+  .btn {
+    width: 150px;
+    padding: 8px;
+    align-items: center;
+    font-family: nunito;
+  }
+  .col-btn {
+    float: right;
+    display: flex;
+    justify-content: flex-end;
+  }
+  /* .btn{
+    width: 100px;
+
+  } */
+  ul.financial-highlights {
+    list-style-type: none; /* Removes default list styling */
+    padding: 0;
+}
+
+ul.financial-highlights li {
+    background-color: #f4f4f4; /* Light gray background for better readability */
+    border-left: 5px solid #007BFF; /* Blue border on the left for emphasis */
+    margin-bottom: 10px; /* Space between items */
+    padding: 10px; /* Padding around text */
+}
+
+ul.financial-highlights h4 {
+    color: #333; /* Darker text for headers */
+    margin-bottom: 5px; /* Small space between header and text */
+}
+
+ul.financial-highlights p {
+    font-size: 16px; /* Slightly larger text for readability */
+    color: #666; /* Lighter text for description */
+}
+
+  .btn-primary {
+    background-color: #0056b3;
+    border-color: #007bff;
+  }
+  .btn-primary:hover {
+    background-color: #034082;
+    border-color: #0056b3;
+  }
+  .btn-next {
+    margin-right: 0;
+  }
+
+  /* Hide radio button */
+  input[type="radio"] {
+    display: none;
+  }
+  #error-message {
+    display: none;
+    color: red;
+    margin-bottom: 12px;
+    margin-top: -15px;
+  }
+</style>
+
+<div class="container">
+    <div id="Page1" class="div-wrap">
+        <div class="div-title">
+            <h1>Introduction</h1>
+        </div>
+        <div class="row">
+            <div class="col-4 div-learn1">
+                <h2>What is a Cash Flow Statement?</h2>
+            </div>
+            <div class="col-8 div-content">
+                <p>A cash flow statement is a financial statement that provides aggregate data regarding all cash inflows a company receives from its ongoing operations and external investment sources, as well as all cash outflows that pay for business activities and investments during a given period.</p>
+            </div>
+        </div>
+        <div class="row navigation">
+            <div class="col-4 btn-next">
+                <a href="/" class="btn btn-primary btn-lg btn-block mt-4">Return Home</a>
+            </div>
+            <div class="col-4 col-btn">
+                <button class="btn btn-primary btn-lg btn-block mt-4" onclick="return show('Page2','Page1');">Next</button>
+            </div>
+        </div>
     </div>
-    
-    <!-- Quiz Button -->
-    <a href="/startquiz" class="btn btn-primary btn-lg btn-block mt-4">Take the Quiz</a>
+    <div id="Page2" style="display:none;">
+        <div class="div-title">
+            <h1>Cash Flow Statement Example</h1>
+        </div>
+        <div class="page2-wrapper row">
+            <div class="col-6 div-content-2">
+                <ul class="financial-highlights">
+                    <li>
+                        <h4>Net Cash Flow - Fiscal Year 2017:</h4>
+                        <p>From this CFS, we can see that the net cash flow for the 2017 fiscal year was $1,522,000.</p>
+                    </li>
+                    <li>
+                        <h4>Source of Positive Cash Flow:</h4>
+                        <p>The bulk of the positive cash flow stems from cash earned from operations, which is a good sign for investors.</p>
+                    </li>
+                    <li>
+                        <h4>Implications for Business Operations:</h4>
+                        <p>It means that core operations are generating business and that there is enough money to buy new inventory.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-6 div-img-example">
+                <img src="static/images/example.png" alt="Example of a Cash Flow Statement" />
+            </div>
+        </div>
+        <div class="row navigation">
+            <div class="col-4 btn-next">
+                <button class="btn btn-primary btn-lg btn-block mt-4" onclick="return show('Page1','Page2');">Previous</button>
+            </div>
+            <div class="col-4 col-btn">
+                <button class="btn btn-primary btn-lg btn-block mt-4" onclick="return show('Page3','Page2');">Next</button>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
-
 {% endblock %}
-<!-- Bootstrap JS Dependencies -->
-<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-</body>
-</html> -->
