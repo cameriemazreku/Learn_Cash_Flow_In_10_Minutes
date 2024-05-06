@@ -127,7 +127,50 @@ def home():
 def learn():
     # Here you can implement the logic to fetch the learning material for the specified lesson_number
     # For now, just rendering the learning page
-    return render_template('learning.html')
+    return render_template('lesson1.html')
+
+@app.route('/lesson1')
+def lesson1():
+    # Here you can implement the logic to fetch the learning material for the specified lesson_number
+    # For now, just rendering the learning page
+    return render_template('lesson1.html')
+
+@app.route('/lesson2')
+def lesson2():
+    # Here you can implement the logic to fetch the learning material for the specified lesson_number
+    # For now, just rendering the learning page
+    return render_template('lesson2.html')
+
+@app.route('/lesson3')
+def lesson3():
+    # Here you can implement the logic to fetch the learning material for the specified lesson_number
+    # For now, just rendering the learning page
+    return render_template('lesson3.html')
+
+@app.route('/lesson4')
+def lesson4():
+    # Here you can implement the logic to fetch the learning material for the specified lesson_number
+    # For now, just rendering the learning page
+    return render_template('lesson4.html')
+
+@app.route('/lesson5')
+def lesson5():
+    # Here you can implement the logic to fetch the learning material for the specified lesson_number
+    # For now, just rendering the learning page
+    return render_template('lesson5.html')
+
+@app.route('/lesson6')
+def lesson6():
+    # Here you can implement the logic to fetch the learning material for the specified lesson_number
+    # For now, just rendering the learning page
+    return render_template('lesson6.html')
+
+
+@app.route('/lesson7')
+def lesson7():
+    # Here you can implement the logic to fetch the learning material for the specified lesson_number
+    # For now, just rendering the learning page
+    return render_template('lesson7.html')
 
 @app.route('/startquiz', methods=['GET', 'POST'])
 def startquiz():

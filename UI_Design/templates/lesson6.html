@@ -1,0 +1,217 @@
+{% extends "layout.html" %} {% block content %}
+
+    
+<style>
+  @font-face {
+    font-family: "roboto";
+    src: url("/static/fonts/Roboto-Medium.ttf");
+  }
+  @font-face {
+    font-family: "roboto-bold";
+    src: url("/static/fonts/Roboto-Bold.ttf");
+  }
+  @font-face {
+    font-family: "nunito";
+    src: url("/static/fonts/Nunito-Regular.ttf");
+  }
+  body {
+    background-color: #e4eef7;
+    color: black;
+  }
+  .row {
+    display: flex;
+    justify-content: space-between; /* This spreads the children elements across the space */
+}
+
+  .nav-divider {
+    height: 40px;
+    background-color: #073763ff; /* Dark blue color */
+    width: 100%; /* Extends across the entire page */
+  }
+  .container {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    flex: auto;
+  }
+  .div-title {
+    justify-content: center;
+    text-align: center;
+    color: #073763ff;
+    margin: 20px;
+  }
+  .div-learn1 {
+    background-color: #073763ff;
+    color: white;
+    padding: 20px;
+    padding-top: 150px;
+    /* margin:20px; */
+  }
+  .div-content {
+    padding: 20px;
+    padding-top: 150px;
+    background-color: white;
+    color: #073763ff;
+    justify-content: center;
+    font-size: medium;
+    height: 80%;
+    padding-bottom: 150px;
+    /* margin:20px; */
+    /* width: 80%; */
+  }
+  .div-wrap {
+    height: 100vh;
+  }
+  .page2-wrapper {
+    background-color: #034082;
+    color: white;
+  }
+  .div-content-2 {
+    padding: 20px;
+    padding-top: 50px;
+    /* background-color: white; */
+    /* color: #073763ff; */
+    justify-content: center;
+    font-size: medium;
+    height: 80%;
+    padding-bottom: 50px;
+    /* margin:20px; */
+    /* width: 80%; */
+  }
+  .div-img-example {
+    padding: 5px;
+  }
+  .options {
+    margin-bottom: 35px;
+  }
+  .option-letter {
+    margin-right: 20px;
+    font-weight: 500;
+    color: #073763ff;
+  }
+  .option-box {
+    font-family: nunito;
+    font-size: 17px;
+    width: 80%;
+    padding: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px; /* Add some space between options */
+    cursor: pointer; /* Change cursor to pointer */
+    display: flex; /* Use flexbox to align items vertically */
+    align-items: center; /* Center option text vertically */
+  }
+  .option-box.selected {
+    background-color: #d9ead3ff;
+    border: 1px solid #91c679; /* Change border color for selected option */
+  }
+  .questionnum h2 {
+    color: #69aab5;
+    font-family: roboto;
+  }
+  .question {
+    color: black;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-family: roboto-bold;
+    font-size: 32px;
+  }
+  .btn {
+    width: 150px;
+    padding: 8px;
+    align-items: center;
+    font-family: nunito;
+  }
+  .col-btn {
+    float: right;
+    display: flex;
+    justify-content: flex-end;
+  }
+  /* .btn{
+    width: 100px;
+
+  } */
+  ul.financial-highlights {
+    list-style-type: none; /* Removes default list styling */
+    padding: 0;
+}
+
+ul.financial-highlights li {
+    background-color: #f4f4f4; /* Light gray background for better readability */
+    border-left: 5px solid #007BFF; /* Blue border on the left for emphasis */
+    margin-bottom: 10px; /* Space between items */
+    padding: 10px; /* Padding around text */
+}
+
+ul.financial-highlights h4 {
+    color: #333; /* Darker text for headers */
+    margin-bottom: 5px; /* Small space between header and text */
+}
+
+ul.financial-highlights p {
+    font-size: 16px; /* Slightly larger text for readability */
+    color: #666; /* Lighter text for description */
+}
+
+  .btn-primary {
+    background-color: #0056b3;
+    border-color: #007bff;
+  }
+  .btn-primary:hover {
+    background-color: #034082;
+    border-color: #0056b3;
+  }
+  .btn-next {
+    margin-right: 0;
+  }
+
+  /* Hide radio button */
+  input[type="radio"] {
+    display: none;
+  }
+  #error-message {
+    display: none;
+    color: red;
+    margin-bottom: 12px;
+    margin-top: -15px;
+  }
+</style>
+
+<div class="container">
+    <div>
+        <div class="div-title">
+            <h1>Cash Flow Statement Example</h1>
+        </div>
+        <div class="page2-wrapper row">
+            <div class="col-6 div-content-2">
+                <ul class="financial-highlights">
+                    <li>
+                        <h4>Net Cash Flow - Fiscal Year 2017:</h4>
+                        <p>From this CFS, we can see that the net cash flow for the 2017 fiscal year was $1,522,000.</p>
+                    </li>
+                    <li>
+                        <h4>Source of Positive Cash Flow:</h4>
+                        <p>The bulk of the positive cash flow stems from cash earned from operations, which is a good sign for investors.</p>
+                    </li>
+                    <li>
+                        <h4>Implications for Business Operations:</h4>
+                        <p>It means that core operations are generating business and that there is enough money to buy new inventory.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-6 div-img-example">
+                <img src="static/images/example.png" alt="Example of a Cash Flow Statement" />
+            </div>
+        </div>
+        <div class="row navigation">
+            <div class="col-4 btn-next">
+                <a href="/lesson5" class="btn btn-primary btn-lg btn-block mt-4" onclick="return show('Page1','Page2');">Previous</a>
+            </div>
+            <div class="col-4 col-btn">
+                <a href="/lesson7" class="btn btn-primary btn-lg btn-block mt-4" onclick="return show('Page3','Page2');">Next</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
