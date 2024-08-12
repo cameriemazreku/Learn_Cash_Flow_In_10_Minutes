@@ -240,4 +240,4 @@ def quiz_result():
     return render_template('result.html', results=results, score=score)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5002)
