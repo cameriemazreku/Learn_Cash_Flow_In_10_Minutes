@@ -4,8 +4,7 @@ This website utilizes the Python framework Flask.
 
 ## Overview
 
-**Learn Cash Flow in 10 Minutes** is a web-based platform designed to help users quickly understand the concept of cash flow and how it impacts their finances. Built using the Python framework Flask, this website provides an intuitive and accessible way for users to learn about cash flow in a short amount of time.
-
+**Learn Cash Flow in 10 Minutes** is a web-based platform designed to help users quickly understand the concept of cash flow and how it impacts their finances. 
 ## Features
 
 - **User-Friendly Interface**: A clean and simple interface to guide users through the basics of cash flow.
