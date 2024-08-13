@@ -68,6 +68,6 @@ For any questions or feedback, feel free to reach out to Camerie Mazreku at came
 
 
 Team:
-  Camerie Mazreku
-  Ann Do
+  Camerie Mazreku,
+  Ann Do,
   Bonny Quan
