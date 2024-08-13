@@ -28,7 +28,7 @@ To run this project locally, follow these steps:
 
 2. **Navigate to the project directory:**
     ```bash
-    cd learn-cash-flow
+    cd Learn_Cash_Flow_In_10_Minutes
 3. **Create a virtual environment:**
     ```bash
     python3 -m venv venv
